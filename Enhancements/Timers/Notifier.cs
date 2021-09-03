@@ -22,8 +22,7 @@ namespace Enhancements.Timers
 
         public ITimeNotification NextNotification()
         {
-            _queue.TryDequeue(out ITimeNotification notif);
-            return notif;
+            return _queue.Count > 0 ? _queue.Dequeue() : null;
         }
 
         public void Initialize()
